@@ -1,0 +1,30 @@
+%YAML 1.2
+%TAG ! tag:yaml-macros:YAMLMacros.lib.extend:
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+!extend
+_base: YAML.sublime-syntax
+name: Infinity
+scope: source.inf
+file_extensions:
+  - inf
+contexts: !merge
+  main: !prepend
+    - include: infinity
+  infinity:
+    - match: '\b(under)\b'
+      scope: string.inf markup.heading.raw
+    - match: '\b(need)\b'
+      scope: markup.heading markup.heading.raw
+    - match: '\b(goal)\b'
+      scope: markup.inserted.inf markup.heading.raw
+    - match: '\b(idea)\b'
+      scope: markup.underline.link markup.heading.raw
+    - match: '\b(plan)\b'
+      scope: variable.language.inf markup.heading.raw
+    - match: '\b(step)\b'
+      scope: constant.numeric.inf markup.heading.raw
+    - match: '\b(task)\b'
+      scope: markup.deleted markup.heading.raw
+    - match: '\b(comment)\b'
+      scope: string.inf markup.heading.raw
